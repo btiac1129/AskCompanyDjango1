@@ -5,6 +5,8 @@ from .models import Post
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["id", 'message',
+                    'message_length', 'created_at', 'updated_at']
+    list_display_links = ['message']
 
 # admin.site.register(Post, PostAdmin)
