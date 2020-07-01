@@ -9,4 +9,8 @@ class PostAdmin(admin.ModelAdmin):
                     'message_length', 'created_at', 'updated_at']
     list_display_links = ['message']
 
+    def message_length(self, post):
+        return f"{len(post.message)}글자"
+    message_length.short_description = '메시지 글자 수'
+
 # admin.site.register(Post, PostAdmin)
