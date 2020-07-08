@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Post
+from .models import Post, Comment
 
 
 @admin.register(Post)
@@ -20,5 +20,10 @@ class PostAdmin(admin.ModelAdmin):
     def message_length(self, post):
         return f"{len(post.message)}글자"
     message_length.short_description = '메시지 글자 수'
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    pass
 
 # admin.site.register(Post, PostAdmin)
