@@ -17,16 +17,23 @@
         <tbody>
             {% for post in post_list %}
             <tr>
-                {% if post.photo %}
-                <td><img src="{{ post.photo.url }}" style="width: 100px;" /></td>
-                {% else %}
-                No Photo
-                {% endif %}
+                <td>
+                    {{ post.pk }}
+                </td>
+                <td>
+                    {% if post.photo %}
+                    <img src="{{ post.photo.url }}" style="width: 100px;" />
+                    {% else %}
+                    No Photo
+                    {% endif %}
+                </td>
                 <td>{{ post.message }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    {{ is_paginated }}
+    {{ page_obj }}
 </body>
 
 </html>
